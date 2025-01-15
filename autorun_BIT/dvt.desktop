@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/src/dvt_win.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=startup_win
+Name=startup_win
+Comment[en_US]=
+Comment=
+

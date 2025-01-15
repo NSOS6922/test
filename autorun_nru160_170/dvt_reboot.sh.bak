@@ -1,0 +1,20 @@
+
+DESKTOP="dvt.desktop"
+
+### Add I am Good
+COM=/dev/ttyTHS1
+PW=nvidia
+echo $PW | sudo -S chown nvidia $COM
+echo $PW | sudo -S chmod o+rw $COM
+echo $PW | sudo -S stty -F $COM 9600
+echo $PW | sudo -S echo -ne "I am good!" >$COM
+
+echo $PW | sudo -S printf "\n\n\nWill reboot in 10 second\n" 
+
+mv ~/.config/autostart/$DESKTOP ~/Desktop/$DESKTOP 2>/dev/null
+sleep 10
+
+echo $PW | sudo -S mv ~/Desktop/$DESKTOP ~/.config/autostart/$DESKTOP 2>/dev/null
+echo $PW | sudo -S reboot
+
+bash

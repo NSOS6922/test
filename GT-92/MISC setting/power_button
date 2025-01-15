@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+if [ "$EUID" -ne 0 ]
+   then echo "Please run with sudo"
+   exit
+fi
+
+sudo apt-get install -y acpid
+
+#/etc/acpi/events/power
+
+sudo echo -e "event=button/power\naction=sudo shutdown now" > /etc/acpi/events/power
+
+sudo service acpid restart
